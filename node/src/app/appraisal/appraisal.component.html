@@ -1,0 +1,161 @@
+<div class="row" style="background-color: black">
+  <div class="col s12">
+    <h3 class="text-xs-center" style="text-align:center">
+      
+    <strong style="color: #FFFFFF"> employee appraisal application </strong>
+  
+
+  </h3>
+    <div class="card">
+      <div class="card-content black-text">
+        <div class="row">
+          <div class="col s5">
+            <form #appraisalForm="ngForm" (ngSubmit)="onSubmit(appraisalForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="appraisalService.selectedAppraisal._id">
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="number" min="1" max="1000" name="EmployeeID" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.EmployeeID" placeholder="enter your id :" required>
+                  <label style ="font-size: 30px;color: #000000;">employee_id:
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="Name" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Name" placeholder="" required>
+                  <p></p>
+                  <label style ="font-size: 30px;color: #000000;">employee name :
+                    <label class="red-text">*</label>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="Department" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Department" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">employee Department :
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row" >
+                <div class="input-field col s10">
+                  <input type="text" name="Year_under_Review" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Year_under_Review" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">Last Review year:
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="date" name="Date_of_Review" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Date_of_Review" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">review date :
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="number" min="1" max="5" name="Rating" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Rating" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">Given Rating :
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="Reviewer_Position" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Reviewer_Position" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">Job knowledge(std or not std) :
+                  <label class="red-text" style="font-weight:bold">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="Goals" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Goals" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">accomplished goals under review year:
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="AOI" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.AOI" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">feedback given by superviser:
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="Core_Values" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Core_Values" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">Employee comments :
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="Comments" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Comments" placeholder="" required>
+                  <label style ="font-size: 30px;color: #000000;">additional comments:
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input type="text" name="Reviewed_By" #name="ngModel" [(ngModel)]="appraisalService.selectedAppraisal.Reviewed_By" placeholder="means who reviewed you" required>
+                  <label style ="font-size: 30px;color: #000000;">Supervisor:
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+
+                  <button class="btn btn-custom right" type="submit" [disabled]="!appraisalForm.valid">Submit</button>
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(appraisalForm)">Clear</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div>
+              <table class="responsive-table highlight" border = "5" >
+                  <thead>
+                    <tr>
+                      <th style="text-align:center">  employee_id</th>
+                      <th style="text-align:center">  name</th>
+                      <th style="text-align:center">  department</th>
+                      <th style="text-align:center">  rating</th>
+                     
+                      <th style="text-align:center">  Update it</th>
+                      <th style="text-align:center">  Delete it</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let app of appraisalService.appraisals">
+                    <td style="text-align:center">{{app.EmployeeID}}</td>
+                    <td style="text-align:center">{{app.Name}}</td>
+                    <td style="text-align:center">{{app.Department}}</td>
+                    <td style="text-align:center">{{app.Rating}}</td>
+                      <td>
+                        <a class="action-btn" (click)="onEdit(app)" >
+                          <i class="material-icons">edit</i>
+                        </a>
+                        </td>
+                      <td>
+                        <a class="action-btn" (click)="onDelete(app._id,appraisalForm)">
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </td>
+                  </tr>
+                </tbody>
+
+                </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
